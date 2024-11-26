@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Welcome to {{ city }}</h1>
+    <p>{{ description }}</p>
+    <p><b>Population:</b> {{ population | number }}</p>
+    <p><b>Current Date:</b> {{ today | date: 'fullDate' }}</p>
+    <div>
+      <img [src]="imgUrl" alt="City Image" width="300" />
+    </div>
+    <h3>Attractions</h3>
+    <button (click)="toggleList()">
+      {{ toggleAttractions ? 'Hide' : 'Show' }} Attractions
+    </button>
+    <ul *ngIf="toggleAttractions">
+      <li *ngFor="let attraction of attractions">{{ attraction }}</li>
+    </ul>
+  
+    <p *ngIf="!toggleAttractions">The attractions list is hidden.</p>
+  </div>
+  
